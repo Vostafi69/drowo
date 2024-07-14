@@ -1,4 +1,6 @@
 import express from "express";
+// import cors from 'cors';
+import cors from "cors";
 
 import { container } from "./container";
 import { InversifyExpressServer } from "inversify-express-utils";
@@ -11,6 +13,7 @@ export class App {
 
     server.setConfig((app) => {
       app.use(express.json());
+      app.use(cors());
     });
 
     const app = server.build();
